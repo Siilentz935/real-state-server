@@ -1,6 +1,6 @@
 const  User = require('../models/user.model').User
 async function createUser(req,res){
-    const firstName = req.body.fn;
+    const firstName = req.body.fn
     const lastName = req.body.ln
     const userName = req.body.un
     const password = req.body.pss
@@ -31,6 +31,26 @@ async function createUser(req,res){
     }
 
 }
+
+async function getUsers(req,res){
+        try{
+            const users = await User.find({
+
+             })
+            res.status(200).json({
+                message:"User Created",
+                obj:users
+            })
+        }catch(e){
+            console.log("cambio")
+            console.error(e)
+            res.status(500).json({
+                message:"Something happen try later"
+            })
+        }
+
+}
 module.exports={
-    createUser
+    createUser,
+    getUsers
 }
