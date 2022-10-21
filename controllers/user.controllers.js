@@ -18,6 +18,7 @@ async function createUser(req,res){
                 obj:newUser
             })
             }catch(e){
+            console.log("prueba")
                 console.error(e)
             res.status(500).json({
                 message:"Something happen try later"
